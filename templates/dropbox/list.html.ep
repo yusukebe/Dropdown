@@ -1,7 +1,7 @@
 % layout 'default';
 % title $name;
 
-<h2>Files and Direcotries</h2>
+<h2>Files and Directories</h2>
 <ul>
 % for my $content (@{$list->{contents}}) {
 <li><a href="/dropbox<%= $content->{path} %>"><%= $content->{path} %></a></li>
