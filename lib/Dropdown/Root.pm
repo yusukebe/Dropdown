@@ -25,19 +25,17 @@ sub login {
 sub callback {
     my $self = shift;
     my $dropbox = $self->app->dropbox;
-    $dropbox->access_token($self->session('access_token'));
-    $dropbox->access_secret($self->session('access_secret'));
     $dropbox->auth or die $dropbox->error;
     $self->session( access_token => $dropbox->access_token );
     $self->session( access_secret => $dropbox->access_secret );
-    $self->redirect_to('/dropbox/');
+    $self->redirect_to( $self->req->url->base . '/dropbox/');
 }
 
 sub logout {
     my $self = shift;
     $self->session( access_token => undef );
     $self->session( access_secret => undef );
-    $self->redirect_to('/');
+    $self->redirect_to( $self->req->url->base );
 }
 
 1;
