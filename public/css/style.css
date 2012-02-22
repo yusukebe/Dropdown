@@ -1,0 +1,50 @@
+.navbar-inner .container
+{
+  width:800px;
+  margin: 0 auto;
+}
+#content, #footer
+{
+  color: #111;
+  margin: 40px auto;
+  width:800px;
+}
+#content 
+{ 
+  margin-top: 70px;
+}
+#footer address
+{ 
+  font-style:italic;
+}
+p
+{
+  font-size:15px;
+  line-height:20px;
+  margin:10px 0;
+}
+
+li
+{
+  font-size:15px;
+  line-height:20px;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+  margin: 20px 0;
+}
+
+img
+{
+  margin: 20px 0;
+}
+
+pre, blockquote
+{
+  margin: 20px 0;
+}
+blockquote p
+{
+  font-size:14px;
+}

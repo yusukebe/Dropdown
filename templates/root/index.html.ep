@@ -1,7 +1,7 @@
 % layout 'default';
 % title 'Dropdown';
 
-<h1>Hello</h1>
+<h1>Dropdown - Home</h1>
 
 % if ($info->{display_name}) {
 <ul>

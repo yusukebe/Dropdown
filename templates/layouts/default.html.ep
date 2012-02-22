@@ -1,5 +1,38 @@
 <!DOCTYPE html>
-<html>
-  <head><title><%= title %></title></head>
-  <body><%= content %></body>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <!-- Le styles -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body data-spy="scroll" data-target=".subnav" data-offset="50">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Dropdown</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="/">Home</a></li>
+              <li><a href="/dropbox/">Root</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+     <div id="content">
+        <%= content %>
+      </div>
+      <div id="footer">
+        <address>Dropdown - <a href="https://github.com/yusukebe/Dropdown">github.com/yusukebe/Dropdown</a></address>
+      </div>
+    </div>
+  </body>
 </html>
