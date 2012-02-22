@@ -11,7 +11,6 @@ my $app = sub { $psgi->run(@_) };
 builder {
     enable_if { $_[0]->{PATH_INFO} !~ qr{^/(?:favicon\.ico|css|images|js)} }
         "Plack::Middleware::AccessLog", format => "combined";
-    enable_if { $_[0]->{REMOTE_ADDR} eq '127.0.0.1' }
-        "Plack::Middleware::ReverseProxy";
+    enable "Plack::Middleware::ReverseProxy";
     $app;
 };
