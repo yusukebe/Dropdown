@@ -35,7 +35,7 @@ sub logout {
     my $self = shift;
     $self->session( access_token => undef );
     $self->session( access_secret => undef );
-    $self->redirect_to( $self->req->url->base );
+    $self->redirect_to( $self->req->url->base . '/' );
 }
 
 1;
