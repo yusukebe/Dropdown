@@ -25,6 +25,8 @@ sub login {
 sub callback {
     my $self = shift;
     my $dropbox = $self->app->dropbox;
+    $dropbox->access_token($self->session('access_token'));
+    $dropbox->access_secret($self->session('access_secret'));
     $dropbox->auth or die $dropbox->error;
     $self->session( access_token => $dropbox->access_token );
     $self->session( access_secret => $dropbox->access_secret );
