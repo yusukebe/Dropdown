@@ -5,6 +5,8 @@ use File::Basename;
 use lib File::Spec->catdir(dirname(__FILE__), 'lib');
 use Plack::Builder;
 
+$ENV{MOJO_MODE} = 'production';
+
 my $psgi = Mojo::Server::PSGI->new( app_class => 'Dropdown' );
 my $app = sub { $psgi->run(@_) };
 
