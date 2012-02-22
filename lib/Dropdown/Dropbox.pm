@@ -7,8 +7,8 @@ sub dropbox {
     my $self = shift;
     my $name = $self->stash->{name};
     my $dropbox = $self->app->dropbox;
-    my $access_token = $self->session( 'access_token' );
-    my $access_secret = $self->session( 'access_secret' );
+    my $access_token = $self->signed_cookie( 'access_token' );
+    my $access_secret = $self->signed_cookie( 'access_secret' );
     return $self->render_not_found if ( !$access_token && !$access_secret );
     $dropbox->access_token($access_token);
     $dropbox->access_secret($access_secret);
