@@ -20,8 +20,14 @@
 p
 {
   font-size:15px;
-  line-height:22px;
+  line-height:24px;
   margin:10px 0;
+}
+
+ul, ol
+{
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 li
