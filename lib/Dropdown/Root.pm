@@ -5,8 +5,8 @@ sub index {
     my $self = shift;
     my $dropbox = $self->app->dropbox;
     my $info = {};
-    if ( (my $access_token = $self->cookie('access_token') )
-             && ( my $access_secret = $self->cookie('access_secret') ) ) {
+    if ( (my $access_token = $self->session('access_token') )
+             && ( my $access_secret = $self->session('access_secret') ) ) {
         $dropbox->access_token($access_token);
         $dropbox->access_secret($access_secret);
         $info = $dropbox->account_info or die $dropbox->error;
@@ -26,15 +26,15 @@ sub callback {
     my $self = shift;
     my $dropbox = $self->app->dropbox;
     $dropbox->auth or die $dropbox->error;
-    $self->cookie( access_token => $dropbox->access_token );
-    $self->cookie( access_secret => $dropbox->access_secret );
+    $self->session( access_token => $dropbox->access_token );
+    $self->session( access_secret => $dropbox->access_secret );
     $self->redirect_to('/dropbox/');
 }
 
 sub logout {
     my $self = shift;
-    $self->cookie( access_token => undef );
-    $self->cookie( access_secret => undef );
+    $self->session( access_token => undef );
+    $self->session( access_secret => undef );
     $self->redirect_to('/');
 }
 

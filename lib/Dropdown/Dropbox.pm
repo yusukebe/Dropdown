@@ -7,8 +7,8 @@ sub dropbox {
     my $self = shift;
     my $name = $self->stash->{name};
     my $dropbox = $self->app->dropbox;
-    if ( (my $access_token = $self->cookie('access_token') )
-             && ( my $access_secret = $self->cookie('access_secret') ) ) {
+    if ( (my $access_token = $self->session('access_token') )
+             && ( my $access_secret = $self->session('access_secret') ) ) {
         $dropbox->access_token($access_token);
         $dropbox->access_secret($access_secret);
         my $list = $dropbox->metadata($name) or die $dropbox->error;
