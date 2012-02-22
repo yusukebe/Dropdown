@@ -6,7 +6,7 @@
 % if ($info->{display_name}) {
 <ul>
   <li>Welcome, <%= $info->{display_name} %>!!</li>
-  <li><a href="/dropbox/">Dropbox Directories</a></li>
+  <li><a href="/dropbox/">Dropbox Root Directory</a></li>
   <li><a href="/logout">Logout</a></li>
 </ul>
 % }else{
