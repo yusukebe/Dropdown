@@ -18,7 +18,8 @@ sub dropbox {
             $dropbox->files(
                 $name,
                 sub {
-                    $content .= $_[0];
+                    # using Furl.
+                    $content .= $_[3];
                 }
             );
             if ( $name =~ m!\.(?:md|mkdn|markdown|mkd|mark|mdown)$! ) {
