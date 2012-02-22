@@ -12,5 +12,5 @@ MANIFEST*
 .DS_Store
 .Spotlight-V100
 .Trashes
-./log/*
+.log/*
 config.conf
