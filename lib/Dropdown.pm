@@ -4,7 +4,8 @@ use WebService::Dropbox;
 
 sub startup {
     my $self = shift;
-    my $config = $self->plugin('Config');
+    my $config = $self->plugin('Config', { file => 'config.conf' });
+    die "$config->{key} / $config->{secret} is undefined!" if(!$config->{key} && !$config->{secret});
     $self->attr(
         dropbox => sub {
             WebService::Dropbox->new(
@@ -18,8 +19,9 @@ sub startup {
     my $r = $self->routes;
     $r->route('/')->to('root#index');
     $r->route('/login')->to('root#login');
+    $r->route('/logout')->to('root#logout');
     $r->route('/callback')->to('root#callback');
-    $r->route('/dropbox/(*name)')->to('dropbox#dropbox');
+    $r->route('/dropbox(*name)')->to('dropbox#dropbox');
 }
 
 1;
