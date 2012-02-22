@@ -30,7 +30,7 @@ sub callback {
     $self->signed_cookie( access_token => $dropbox->access_token );
     $self->signed_cookie( access_secret => $dropbox->access_secret );
     $self->res->code('302');
-    $self->res->headers->header('Location'=> $self->req->url->base . '/dropbox/');
+    $self->res->headers->header( 'Location' => '/dropbox/');
 }
 
 sub logout {
@@ -38,7 +38,7 @@ sub logout {
     $self->signed_cookie( access_token => '' );
     $self->signed_cookie( access_secret => '' );
     $self->res->code('302');
-    $self->res->headers->header('Location'=> $self->req->url->base);
+    $self->res->headers->header('Location'=> '/');
 }
 
 1;
