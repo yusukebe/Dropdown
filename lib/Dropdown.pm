@@ -1,18 +1,25 @@
 package Dropdown;
 use Mojo::Base 'Mojolicious';
+use WebService::Dropbox;
 
-# This method will run once at server start
 sub startup {
-  my $self = shift;
-
-  # Documentation browser under "/perldoc"
-  $self->plugin('PODRenderer');
-
-  # Routes
-  my $r = $self->routes;
-
-  # Normal route to controller
-  $r->route('/welcome')->to('example#welcome');
+    my $self = shift;
+    my $config = $self->plugin('Config');
+    $self->attr(
+        dropbox => sub {
+            WebService::Dropbox->new(
+                {
+                    key    => $config->{key},
+                    secret => $config->{secret}
+                }
+            );
+        }
+    );
+    my $r = $self->routes;
+    $r->route('/')->to('root#index');
+    $r->route('/login')->to('root#login');
+    $r->route('/callback')->to('root#callback');
+    $r->route('/dropbox/(*name)')->to('dropbox#dropbox');
 }
 
 1;
