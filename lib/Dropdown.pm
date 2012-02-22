@@ -4,17 +4,18 @@ use WebService::Dropbox;
 
 sub startup {
     my $self = shift;
+    $self->secret('hogehoge');
     my $config = $self->plugin('Config', { file => 'config.conf' });
     die "$config->{key} / $config->{secret} is undefined!" if(!$config->{key} && !$config->{secret});
     $self->attr(
         dropbox => sub {
-            WebService::Dropbox->new(
+	    WebService::Dropbox->new(
                 {
                     key    => $config->{key},
                     secret => $config->{secret}
                 }
             );
-        }
+	}
     );
     my $r = $self->routes;
     $r->route('/')->to('root#index');

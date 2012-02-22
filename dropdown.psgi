@@ -11,6 +11,7 @@ my $app = sub { $psgi->run(@_) };
 builder {
     enable_if { $_[0]->{PATH_INFO} !~ qr{^/(?:favicon\.ico|css|images|js)} }
         "Plack::Middleware::AccessLog", format => "combined";
+    enable 'Session', store => 'File';
     enable "Plack::Middleware::ReverseProxy";
     $app;
 };
