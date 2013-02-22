@@ -26,7 +26,10 @@ sub dropbox {
     if ( !$list->{is_dir} ) {
         my $content;
         $dropbox->files(
-            $name,  sub { $content .= $_[3]; } # using Furl.
+            $name,  sub {
+                my $chunk = @_ == 4 ? @_[3] : $_[0];
+                $content .= $chunk;
+            }
         );
 
         # 拡張子がMarkdownのものだったら
