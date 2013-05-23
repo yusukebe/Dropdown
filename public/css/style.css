@@ -1,17 +1,24 @@
+body { 
+  background-color:#fcfcfc;
+}
 .navbar-inner .container
 {
-  width:800px;
+  width: 680px;
   margin: 0 auto;
 }
 #content, #footer
 {
-  color: #111;
+  color: #000;
   margin: 40px auto;
-  width:800px;
+  width: 680px;
 }
 #content 
 { 
   margin-top: 70px;
+}
+#footer {
+  border-top: 1px solid #eee;
+  padding-top: 30px;
 }
 #footer address
 { 
@@ -19,14 +26,14 @@
 }
 p
 {
-  font-size:15px;
-  line-height:24px;
+  font-size:15.5px;
+  line-height:1.7;
   margin:10px 0;
 }
 
 li
 {
-  font-size:15px;
+  font-size:15.5px;
   line-height:22px;
 }
 
@@ -46,7 +53,7 @@ pre, blockquote
 }
 blockquote p
 {
-  font-size:14px;
+  font-size:15.5px;
 }
 
 h1 { font-size:26px; }

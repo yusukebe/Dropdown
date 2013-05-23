@@ -1,0 +1,4 @@
+{
+    key    => 'your_dropbox_api_key',
+    secret => 'your_dropbox_secret_key'
+};
