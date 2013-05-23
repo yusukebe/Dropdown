@@ -7,7 +7,6 @@ use Plack::Builder;
 use Dropdown;
 
 $ENV{MOJO_MODE} = 'production';
-
 my $psgi = Mojo::Server::PSGI->new( app => Dropdown->new );
 my $app = $psgi->to_psgi_app;
 
