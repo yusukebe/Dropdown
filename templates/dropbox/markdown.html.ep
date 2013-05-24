@@ -1,5 +1,7 @@
 % layout 'default';
-% title $document_title || $name;
+% my $t = $document_title || $name;
+% $t .= " ($length chars)";
+% title $t;
 
 <%== $markdown_html %>
 
@@ -8,4 +10,3 @@
   <%= $name %><br />
   <%= $length %> chars
 </div>
-
