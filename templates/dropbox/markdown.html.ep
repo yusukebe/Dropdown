@@ -1,5 +1,11 @@
 % layout 'default';
-% title $name;
+% title $document_title || $name;
 
 <%== $markdown_html %>
+
+<div id="markdown-meta">
+  <hr />
+  <%= $name %><br />
+  <%= $length %> chars
+</div>
 

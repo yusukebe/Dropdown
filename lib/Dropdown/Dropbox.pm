@@ -35,6 +35,9 @@ sub dropbox {
         # 拡張子がMarkdownのものだったら
         if ( $name =~ m!\.(?:md|mkdn|markdown|mkd|mark|mdown)$! ) {
             $content = decode_utf8($content);
+            my ($document_title) = $content =~ m!^#+(.+)!;
+            $self->stash->{document_title} = $document_title;
+            $self->stash->{length} = length $content;
             $self->stash->{markdown_html} = markdown($content);
             return $self->render(
                 template => 'dropbox/markdown',

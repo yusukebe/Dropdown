@@ -60,3 +60,12 @@ h1 { font-size:22px; }
 h2 { font-size:20px; }
 h3 { font-size:16.5px; }
 h4 { font-size:15.5px; }
+
+#markdown-meta {
+  text-align:center;
+}
+
+#markdown-meta hr{
+  margin:60px auto 20px;
+  width:80%;
+}
